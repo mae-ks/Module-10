@@ -1,13 +1,14 @@
 import sys
+import fileinput
 
-def asci(file, shift):
+def asci(shift, file):
     modif, res = "", ""
     tracker = 0
     with open(file, 'r') as file:
-        for sentence in file:
-            for letter in sentence:
-                if letter.isalpha():
-                    modif += letter.upper()
+      for sentence in file:
+          for letter in sentence:
+              if letter.isalpha():
+                  modif += letter.upper()
     for tracker in range(len(modif)):
         new_ord = ord(modif[tracker]) + int(shift)
         if new_ord > 90:
