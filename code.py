@@ -3,9 +3,10 @@ import sys
 def asci(shift, sentence):
     modif, res = "", ""
     tracker = 0
-    for letter in sentence:
-        if letter.isalpha():
-            modif += letter.upper()
+    for line in sentence:
+        for letter in line:
+            if letter.isalpha():
+                modif += letter.upper()
     for tracker in range(len(modif)):
         new_ord = ord(modif[tracker]) + int(shift)
         if new_ord > 90:
@@ -17,5 +18,6 @@ def asci(shift, sentence):
             res += " "
         res += new_chr
     return res
+
 sent = input()
 print(asci(sys.argv[1], sent))
