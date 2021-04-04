@@ -17,6 +17,5 @@ def asci(shift, sentence):
             res += " "
         res += new_chr
     return res
-
 sent = input()
 print(asci(sys.argv[1], sent))
