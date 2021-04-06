@@ -3,13 +3,11 @@ import sys
 def asci(shift):
     modif, res = "", ""
     tracker = 0
-    file = input()
-    for letter in file:
+    for word in sys.stdin.readlines():
+      word = word.rstrip("\n")
+      for letter in word:
         if letter.isalpha():
-            modif += letter.upper()
-    for letter in sys.stdin.read():
-        if letter.isalpha():
-            modif += letter.upper()
+          modif += letter.upper()
     for tracker in range(len(modif)):
         new_ord = ord(modif[tracker]) + int(shift)
         if new_ord > 90:
